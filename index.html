@@ -1,0 +1,65 @@
+
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBA Strength Calculator</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+  <header class = "header h1"><h1>Which conference is strongest? Welcome to the NBA Strength Calculator!</header>
+  <div class = "container">
+    <div class = "box left_section">
+      <header class = "header h2"><h2>Current strongest conference</header>
+    </div>
+    <div class = "right_section box ">
+      <header class = "subtitle header h2 "><h2>Data results</header>
+      <div class="carousel">
+        <div class = "chart_container">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <div>
+        <p class = "box">Team of Conference </p>
+  </div>
+  </div>
+</div>
+<div class="divisions box">
+  <form action="/api" method = "get" class = "division_form" id = 'comp'>
+  <div>  
+    <label for="division_form">First division</label>
+    <select name="division" id="division1">
+    <option value="Atlantic">Atlantic</option>
+    <option value="Central">Central</option>
+    <option value="Southeast">Southeast</option>
+    <option value="Northwest">Northwest</option>
+    <option value="Pacific">Pacific</option>
+    <option value="Southwest">Southwest</option>
+    </select>
+  </div>
+  <div>
+    <label for="division_form">Second division</label>
+    <select name="division" id="division2">
+    <option value="Atlantic">Atlantic</option>
+    <option value="Central">Central</option>
+    <option value="Southeast">Southeast</option>
+    <option value="Northwest">Northwest</option>
+    <option value="Pacific">Pacific</option>
+    <option value="Southwest">Southwest</option>
+    </select>
+  </div>
+  <button class = "submit" id="comp_divs" form = "comp">Compare Divisions!</button>
+</form>
+</div>
+
+</div>
+<div class = "footer">
+</div>
+  
+  
+  <script src="script.js" charset= "utf-8"></script>
+</body>
+</html>
