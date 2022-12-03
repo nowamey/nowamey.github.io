@@ -74,7 +74,7 @@ form {
 
 
 .wrapper {
-  background-color: rgba(66, 126, 200, 0.65);
+  background-color: rgb(255, 255, 255);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -97,8 +97,9 @@ form {
   padding-bottom: 1.5rem;
   color:darkred
 }
-.divisions{
-  
+.divisions .box{
+  display: flex;
+  size: 500px;
 }
 
 /*
@@ -298,3 +299,53 @@ form {
     }
   }
   
+ _______________
+
+
+
+
+ *{padding: 0; margin: 0; box-sizing: border-box;}
+ body{height: 250;}
+ header .overlay {
+   background: url('https://wallpaperaccess.com/full/128258.jpg');
+   text-align: center;
+   vertical-align: bottom;
+   width: 100%;
+   height: 175%;
+   background-size: cover;
+   background-attachment: fixed;
+   position: bottom;
+   overflow: hidden;
+   border-radius: 0 0 85% 85% / 30%;
+ }
+
+ 
+ h1 {
+   font-family: 'Dancing Script', cursive;
+   font-size: 80px;
+   margin-bottom: 30px;
+   }
+ 
+ h3, p {
+   font-family: 'Open Sans', sans-serif;
+   margin-bottom: 30px;
+   
+ }
+ 
+ button {
+   border: none;
+   outline: none;
+   padding: 10px 20px;
+   border-radius: 50px;
+   color: #333;
+   background: #fff;
+   margin-bottom: 50px;
+   box-shadow: 0 3px 20px 0 #0000003b;
+ }
+ button:hover{
+   cursor: pointer;
+ }
+ .chart_container{
+  width:100%;
+  height:100%;
+ }
