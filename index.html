@@ -8,26 +8,34 @@
 </head>
 
 <header>
-    <div class="overlay"> <h1> NBA Strength Tierlist </h1>
+    <div class="overlay"> <h1> NBA Strength Calculator </h1>
         </div>
 </header>
 
 <body>
 
+  
   <div class="wrapper">
   <div class = "container">
     <div class = "box left_section">
       <header class = "header h2"><h2>Current strongest conference</header>
+
+       
+        
     </div>
     <div class = "right_section box ">
       <header class = "subtitle header h2 "><h2>Data results</header>
         <div class = "chart_container">
           <canvas id="myChart"></canvas>
+      <div class="carousel">
+       
       </div>
       <div>
         <p class = "box">Team of Conference</p>
   </div>
   </div>
+</div>
+
 </div>
 <div class="divisions box">
   <form action="/api" method = "get" class = "division_form">
@@ -53,8 +61,8 @@
     <option value="Southwest">Southwest</option>
     </select>
   </div>
+  
   <button class = "submit" id="comp_divs">Compare Divisions!</button>
-</form>
 </div>
 
 </div>

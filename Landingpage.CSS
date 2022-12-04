@@ -1,0 +1,79 @@
+
+
+ *{padding: 0; margin: 0; box-sizing: border-box;}
+ body{height: 250;}
+ header .overlay {
+   text-align: center;
+   vertical-align: bottom;
+   width: 100%;
+   background-size: cover;
+   background-attachment: fixed;
+   position: bottom;
+   overflow: hidden;
+   border-radius: 0 0 0% 0% / 100%;
+ }
+ .wrapper{
+  background: url('https://wallpapercave.com/wp/wp6389430.jpg');
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+  
+ }
+ .results_ref{
+  height: auto;
+  align-items: center;
+  object-fit: contain;
+  
+ }
+ h1 {
+   font-family: 'Courier New', monospace;
+   font-size: 3rem;
+   color: rgb(255, 255, 255);
+   margin-bottom: 0px;
+   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;  
+   background-color: rgb(114, 51, 51);
+   padding-bottom: 10px;
+   text-align: center;
+   }
+ 
+ h3, p {
+   font-family: 'Open Sans', sans-serif;
+   margin-bottom: 30px;
+   
+   
+ }
+ .info{
+  justify-content: center;
+  height: 100%;
+ }
+ .box {
+  border: 2px;
+  border-radius: 4px;
+  width: fit-content;
+  height:fit-content;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+  
+ button {
+   border: none;
+   outline: none;
+   padding: 20px 30px;
+   border-radius: 50px;
+   color: rgb(255, 255, 255);
+   background-color: rgb(99, 1, 1);
+   margin-bottom: 10px;
+   margin-top: 8rem;
+   box-shadow: 0 3px 20px 0 #0000003b;
+   font-size: 2rem;
+   
+   
+ }
+ button:hover{
+   cursor: pointer;
+ }
+ p{
+  padding:0;
+  font-family: 'Courier New', monospace;
+  font-size: 3rem;
+ }
