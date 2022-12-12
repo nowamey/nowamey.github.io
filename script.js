@@ -8,9 +8,13 @@ async function mainEvent(){
     const results = await getData();
 
     const myChart = initChart(chartTarget,results)
+
+    let rankings = getRankings(results,10);
+    injectHTML(rankings)
+    injectConf(results)
     
-    
-    let option1,option2 = 'Atlantic';
+    let option1 = 'Atlantic';
+    let option2 = 'Atlantic';
     console.log(results);
     divisionOne.addEventListener('change', (changeEvent) => {
         changeEvent.preventDefault();
@@ -64,11 +68,11 @@ function getTotals(teams,divisionOne,divisionTwo){
     console.log(divisionOne);
     console.log(divisionTwo);
 
-    let totals = {divisionOne:div1Wins,divisionTwo:div2Wins}
+    let totals = [divisionOne,divisionTwo,div1Wins,div2Wins]
     console.log(totals)
     return totals
 }
-async function getData(){
+async function getData(){   
     //boilerplate api call for now to make sure we are hooked up to the api
     const options = {
         method: 'GET',
@@ -88,8 +92,10 @@ async function getData(){
     
 }
 function initChart(chart,teams){
-        const labels = teams.map((key) => key.team.name);
-        const info = teams.map((key) => key.win.total);
+        const ranked = (getRankings(teams,10));
+        ;
+        const labels = ranked.map((key) => key.team.name);
+        const info = ranked.map((key) => key.win.total);
         const data = {
           labels: labels,
           datasets: [{
@@ -111,14 +117,10 @@ function initChart(chart,teams){
           config
         );
 }
-function injectHTML(){
-    //inject to html the current winning division or conference based on the comp of totals.
-}
-function compareChart(chart,compResults){
-    
 
-    const labels = Object.keys(compResults);
-    const info = Object.values(compResults);
+function compareChart(chart,compResults){
+    const labels = [compResults[0],compResults[1]];
+    const info = [compResults[2],compResults[3]];
 
     console.log(labels);
     console.log(info);
@@ -129,4 +131,58 @@ function compareChart(chart,compResults){
     })
     chart.update();
 }
+
+function injectHTML(list){
+    //inject to html the current winning division or conference based on the comp of totals.
+    console.log('fired injectHTML');
+    const target = document.querySelector("#rankings");
+      
+    target.innerHTML = '';
+      
+    const listEl = document.createElement('ol');
+    target.appendChild(listEl);
+    list.forEach((item) => {
+        const el = document.createElement('li');
+        el.innerText = item.team.name + ' ('+item.win.total+' wins)'
+        listEl.appendChild(el);
+    });
+}
+function getRankings(results,teamsToRank){
+    function compareMethod(team1,team2){
+        return team2.win.total - team1.win.total;
+    }
+    const ranked  = results.sort(compareMethod)
+    console.log(ranked)
+    return ranked.slice(0,teamsToRank);
+}
+function injectConf(results){
+    const east = results.filter((team) => team.conference.name === 'east');
+    const west = results.filter((team) => team.conference.name === 'west');
+    let conf = ''
+    let eastWins = 0;
+    let westWins = 0;
+
+    east.forEach((team) => eastWins+=team.win.total);
+    west.forEach((team) => westWins+=team.win.total);
+    console.log(eastWins);
+    console.log(westWins);
+    
+    if(eastWins > westWins){
+        conf ='The East is the stronger conference with '+(eastWins - westWins)+' more wins than the West!'
+    }else if(westWins>eastWins){
+        conf = 'The West is the stronger conference with '+(westWins-eastWins)+' more wins than the East!'
+    }else{
+        conf = 'Both conferences are currently equal in strength!'; 
+    }
+    console.log(conf)
+    const confTarget = document.querySelector('#conf');
+    const node = document.createTextNode(conf)
+    let answer = document.createElement('p')
+    answer.appendChild(node);
+    console.log(confTarget)
+    confTarget.appendChild(answer);
+    
+} 
 document.addEventListener('DOMContentLoaded', async () => mainEvent());
+
+
