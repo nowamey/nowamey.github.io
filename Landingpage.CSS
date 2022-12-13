@@ -57,7 +57,7 @@
   
  button {
    border: none;
-   outline: none;
+   outline: none; 
    padding: 20px 30px;
    border-radius: 50px;
    color: rgb(255, 255, 255);
