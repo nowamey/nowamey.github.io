@@ -1,0 +1,13 @@
+.wrapper{
+    display: flex;
+    flex-direction: row; /*about me -- left: project redirects  -- right*/
+    padding-left: 5vw;
+    padding-right: 5vw;
+    min-height: 100vh;
+}
+.left_section{
+    padding-right: 20vw;
+}
+.right_section{
+    padding-left: 20vw
+}
